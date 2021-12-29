@@ -9,18 +9,18 @@ const getTemps = (req, res) => {
   });
 };
 
-const addTemp = (req, res) => {
+const appendTemp = (req, res) => {
   const log_temperature = req.body;
 
   pool.query(
-    `INSERT INTO log_temperature (vehicle_id,device_id,read_data) 
-    VALUES ('${log_temperature.vehicle_id}','${log_temperature.device_id}','${log_temperature.read_data}')`,
+    `INSERT INTO log_temperature (vehicle_id,device_id,read_data,created_at) 
+    VALUES ('${log_temperature.vehicle_id}','${log_temperature.device_id}','${log_temperature.read_data}','${log_temperature.created_at}')`,
     (error, results) => {
       if (error) {
         throw error;
       }
       res.send(201, () => {
-        console.log('Temperature log was sent.')
+        console.log('Temperature log is sending.')
       });
     }
   )
@@ -29,5 +29,5 @@ const addTemp = (req, res) => {
 
 module.exports = {
   getTemps,
-  addTemp,
+  appendTemp,
 };
