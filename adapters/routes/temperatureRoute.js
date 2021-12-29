@@ -4,6 +4,6 @@ const temperatureController=require("../controllers/temperatureController")
 const router = express.Router()
 
 router.route("/temp_list").get(temperatureController.getTemps);
-router.route("/temp_add").post(temperatureController.addTemp);
+router.route("/temp_add").post(temperatureController.appendTemp);
 
 module.exports = router
