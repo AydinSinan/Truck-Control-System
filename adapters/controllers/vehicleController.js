@@ -9,16 +9,16 @@ const getVehicles = (req, res) => {
     })
   }
 
-  const addVehicle = (req, res) => {
+  const appendVehicle = (req, res) => {
     const vehicle = req.body
   
-    pool.query(`INSERT INTO vehicles (vehicle_plate) 
-    VALUES ('${vehicle.vehicle_plate}')`, (error, results) => {
+    pool.query(`INSERT INTO vehicles (vehicle_plate,current_status,is_active) 
+    VALUES ('${vehicle.vehicle_plate}','${vehicle.current_status}','${vehicle.is_active}')`, (error, results) => {
       if (error) {
         throw error
       }
       res.send(201, () => {
-        console.log('Vehicle added')
+        console.log('vehicle Tools is appending...')
       })
     })
   }
@@ -54,7 +54,7 @@ const getVehicles = (req, res) => {
 
   module.exports = {
     getVehicles,
-    addVehicle,
+    appendVehicle,
     updateVehicle,
     deleteVehicle
   }
