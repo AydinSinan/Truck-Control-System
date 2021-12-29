@@ -39,6 +39,6 @@ app.use("/devices_type", deviceTypeRoute)
 app.use("/log_temperature", temperatureRoute)
 app.use("/log_location", locationRoute)
 
-app.listen(3000, function (req, res) {
+app.listen(3000, () => {
     console.log('Server is starting... ');
   });
