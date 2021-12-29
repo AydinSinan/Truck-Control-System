@@ -13,8 +13,8 @@ const addDevice = (req, res) => {
   const device = req.body;
 
   pool.query(
-    `INSERT INTO devices (vehicle_id,device_type_id,device_name) 
-    VALUES ('${device.vehicle_id}','${device.device_type_id}','${device.device_name}')`,
+    `INSERT INTO devices (vehicle_id,device_type_id,device_name,is_online,is_active) 
+    VALUES ('${device.vehicle_id}','${device.device_type_id}','${device.device_name},'${device.is_online}','${device.is_active}')`,
     (error, results) => {
       if (error) {
         throw error;
