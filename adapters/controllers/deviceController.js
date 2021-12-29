@@ -20,7 +20,7 @@ const addDevice = (req, res) => {
         throw error;
       }
       res.send(201, () => {
-        console.log(`Device added`)
+        console.log('Device appending...')
       });
     }
   );
@@ -37,7 +37,7 @@ const updateDevice = (req, res) => {
         throw error;
       }
       res.send(200, () => {
-        console.log(`Device with ID : ${device.id} updated`)
+        console.log('Device is updating')
       });
     }
   );
@@ -53,7 +53,7 @@ const deleteDevice = (req, res) => {
         throw error;
       }
       res.send(200, () => {
-        console.log(`Device with ID: ${device.id} deleted.`)
+        console.log('Device is being deleted.')
       });
     }
   );
