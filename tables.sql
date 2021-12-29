@@ -12,8 +12,9 @@ CREATE TABLE devices_type (
 );
 
 CREATE TABLE vehicle (
-	id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     vehicle_plate VARCHAR (20) UNIQUE NOT NULL,
+	
 );
 
 CREATE TABLE log_temperature (
