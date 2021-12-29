@@ -9,18 +9,18 @@ const getGPS = (req, res) => {
   });
 };
 
-const addGPS = (req, res) => {
+const appendGPS = (req, res) => {
   const log_location = req.body;
 
   pool.query(
-    `INSERT INTO log_location (vehicle_id,device_id,latitude,longitude) 
-    VALUES ('${log_location.vehicle_id}','${log_location.device_id}','${log_location.latitude}','${log_location.longitude}')`,
+    `INSERT INTO log_location (vehicle_id,device_id,latitude,longitude,created_at) 
+    VALUES ('${log_location.vehicle_id}','${log_location.device_id}','${log_location.latitude}','${log_location.longitude}',${log_location.created_at})`,
     (error, results) => {
       if (error) {
         throw error;
       }
       res.send(201, () => {
-        console.log('Location log sent.')
+        console.log('log location is sending.')
       });
     }
   );
@@ -29,5 +29,5 @@ const addGPS = (req, res) => {
 
 module.exports = {
   getGPS,
-  addGPS,
+  appendGPS,
 };
